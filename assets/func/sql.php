@@ -104,7 +104,7 @@ function deleteDataById(string $table, string $PrimaryKey, $id, $conn){
  * @param String   $table  expects table name
  * @param Array   $data  expects data in array as array("column1", value1, "column2", "value2"...)
  * @param String   $PrimaryKey  expects primary key column name
- * @param String   $id  expects primary key value
+ * @param Integer   $id  expects primary key value
  * @param mysqli_connect   $conn  expects database connection
  * 
  */ 

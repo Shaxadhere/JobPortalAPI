@@ -25,6 +25,7 @@ $cnic_back_val = random_strings(20);
 $picture = random_strings(20);
 
 
+
 insertData(
     "tbl_worker",
     array(
@@ -58,6 +59,7 @@ insertData(
         $emergency_contact
     ),
     $conn
-)
+);
+
 
 ?>
