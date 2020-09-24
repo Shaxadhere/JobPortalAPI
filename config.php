@@ -1,6 +1,6 @@
 <?php
 
-include_once('assets/phprapid/rapid.php');
+include_once('assets/rapid.php');
 
 
 function connect(){
