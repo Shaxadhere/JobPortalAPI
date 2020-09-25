@@ -52,6 +52,8 @@ SkillOptions varchar(200)
 create table if not EXISTS tbl_worker_skils
 (
 PK_ID int PRIMARY key AUTO_INCREMENT,
+SkillID int,
+constraint SkillID foreign key(SkillID) references tbl_skills(PK_ID),
 WorkerID int,
 constraint WorkerID foreign key(WorkerID) references tbl_worker(PK_ID)
 );
