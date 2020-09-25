@@ -39,7 +39,7 @@ Reference varchar(50),
 CnicFrontPicture varchar(200),
 CnicBackPicture varchar(200),
 Picture varchar(200),
-Status boolean default 0,
+Status boolean default 0
 );
 
 create table if not EXISTS tbl_skills
@@ -53,5 +53,5 @@ create table if not EXISTS tbl_worker_skils
 (
 PK_ID int PRIMARY key AUTO_INCREMENT,
 WorkerID int,
-constraint WorkerID foreign key(WorkerID) references tbl_worker(PK_ID),
+constraint WorkerID foreign key(WorkerID) references tbl_worker(PK_ID)
 );
