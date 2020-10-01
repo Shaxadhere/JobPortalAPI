@@ -2,7 +2,7 @@
 
 include_once('../../config.php');
 
-wirj$conn = connect();
+$conn = connect();
 
 $errors = array();
 
