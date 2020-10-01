@@ -21,6 +21,10 @@ if(empty($Email)){
     array_push($errors, "Email is required");
 }
 
+if(checkExistance("tbl_employer", "Email", $Email, $conn)){
+    array_push($errors, "Email already exist");
+}
+
 if(empty($Password)){
     array_push($errors, "Password is required");
 }
