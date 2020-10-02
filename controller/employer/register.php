@@ -19,23 +19,19 @@ if(empty($Fullname)){
 }
 
 if(empty($Email)){
-    array_push($errors, "Email is required");
-}
-
-if(checkExistance("tbl_employer", "Email", $Email, $conn)){
-    array_push($errors, "Email already exist");
+    $errors['email'] = "Email is required";
 }
 
 if(empty($Password)){
-    array_push($errors, "Password is required");
+    $errors['password'] = "Password is required";
 }
 
 if(empty($Mobile)){
-    array_push($errors, "Mobile number is required");
+    $errors['mobile'] = "Mobile number is required";
 }
 
-if($Address){
-    array_push($errors, "Address is required");
+if(empty($Address)){
+    $errors['address'] = "Address is required";
 }
 
 if($errors == null){
@@ -58,7 +54,7 @@ if($errors == null){
         ),
         $conn
     );
-    echo "true";
+    $errors['result'] = "true";
 
 }
 else{

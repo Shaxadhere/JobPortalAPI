@@ -1,5 +1,5 @@
-<!-- 
- * PHP Rapid
+<?php
+/** 
  * https://github.com/Shaxadhere/phprapid
  *
  * Tested on PHP 7.4
@@ -12,9 +12,7 @@
  * 
  *
  * Date: 2020-08-23
-  -->
-
-<?php
+ */
 
 $user_agent = $_SERVER['HTTP_USER_AGENT'];
 
@@ -223,32 +221,32 @@ function trackIP($ip){
 
 }
 
-/**
- * converts url to pdf,
- * api requests are limited, for personal free api token 
- * sign up at https://pdflayer.com/signup?plan=32
- * and modify assets/pdflayer.class.php by entering your access_key
- *
- * @param String   $url  expects phone number in string
- * 
- * @return Array array(valid, country_code, carrier, country_prefix, country_name, line_type)
- */ 
-function urlToPdf($url){
-    include('assets/pdflayer.class.php');
+// /**
+//  * converts url to pdf,
+//  * api requests are limited, for personal free api token 
+//  * sign up at https://pdflayer.com/signup?plan=32
+//  * and modify assets/pdflayer.class.php by entering your access_key
+//  *
+//  * @param String   $url  expects phone number in string
+//  * 
+//  * @return Array array(valid, country_code, carrier, country_prefix, country_name, line_type)
+//  */ 
+// function urlToPdf($url){
+//     include('assets/pdflayer.class.php');
 
-    //Instantiate the class
-    $html2pdf = new pdflayer();
+//     //Instantiate the class
+//     $html2pdf = new pdflayer();
 
-    //set the URL to convert
-    $html2pdf->set_param('document_url','https://pdflayer.com/downloads/invoice.html');
+//     //set the URL to convert
+//     $html2pdf->set_param('document_url','https://pdflayer.com/downloads/invoice.html');
 
-    //start the conversion  
-    $html2pdf->convert();
+//     //start the conversion  
+//     $html2pdf->convert();
 
-    //display the PDF file  
-    $html2pdf->download_pdf('document.pdf');
+//     //display the PDF file  
+//     $html2pdf->download_pdf('document.pdf');
 
-}
+// }
 
 /**
  * estimates a gender from a first name

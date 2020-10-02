@@ -1,5 +1,5 @@
-<!-- 
- * PHP Rapid
+<?php
+/** 
  * https://github.com/Shaxadhere/phprapid
  *
  * Tested on PHP 7.4
@@ -12,9 +12,7 @@
  * 
  *
  * Date: 2020-08-23
-  -->
-
-<?php
+ */
 
 /**
  * generates random evil insult in english
