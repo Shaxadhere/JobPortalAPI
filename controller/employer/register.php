@@ -14,7 +14,8 @@ $Address = $_REQUEST['address'];
 
 
 if(empty($Fullname)){
-    array_push($errors, "Full name is required");
+    $errors['fullname'] = "Full name is required";
+    // array_push($errors, "Full name is required");
 }
 
 if(empty($Email)){
