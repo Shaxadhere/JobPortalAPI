@@ -57,6 +57,7 @@ if($errors == null){
 
 }
 else{
+    $error = array("errors" => $errors);
     echo json_encode($errors);
 }
 
