@@ -53,12 +53,13 @@ if($errors == null){
         ),
         $conn
     );
-    $errors['result'] = "true";
+    $result = array("result" => "true");
+    echo json_encode($result);
 
 }
 else{
-    $error = array("errors" => $errors);
-    echo json_encode($errors);
+    $result = array("result" => $errors);
+    echo json_encode($result);
 }
 
 ?>
