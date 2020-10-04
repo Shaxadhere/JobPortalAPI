@@ -22,7 +22,7 @@ if(empty($Email)){
 }
 
 if(empty($Password)){
-    $array_push($errors,"Password is required");
+    array_push($errors,"Password is required");
 }
 
 if(empty($Mobile)){
