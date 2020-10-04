@@ -14,23 +14,23 @@ $Address = $_REQUEST['address'];
 
 
 if(empty($Fullname)){
-    $errors['fullname'] = "Full name is required";
+    array_push($errors,"Full name is required");
 }
 
 if(empty($Email)){
-    $errors['email'] = "Email is required";
+    $erarray_push($errors,"Email is required");
 }
 
 if(empty($Password)){
-    $errors['password'] = "Password is required";
+    $array_push($errors,"Password is required");
 }
 
 if(empty($Mobile)){
-    $errors['mobile'] = "Mobile number is required";
+    array_push($errors,"Mobile number is required");
 }
 
 if(empty($Address)){
-    $errors['address'] = "Address is required";
+    array_push($errors,"Address is required");
 }
 
 if($errors == null){
@@ -57,7 +57,8 @@ if($errors == null){
 
 }
 else{
-    echo json_encode($errors);
+    $error = array("errors" => $errors);
+    echo json_encode($error);
 }
 
 ?>
