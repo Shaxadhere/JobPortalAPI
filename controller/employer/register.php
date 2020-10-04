@@ -18,7 +18,7 @@ if(empty($Fullname)){
 }
 
 if(empty($Email)){
-    $erarray_push($errors,"Email is required");
+    array_push($errors,"Email is required");
 }
 
 if(empty($Password)){
