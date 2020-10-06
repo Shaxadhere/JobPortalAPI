@@ -19,7 +19,7 @@ if(empty($Password)){
 
 if($errors == null){
     $user = verifyValues(
-        "tbl_employer",
+        "tbl_worker",
         array(
             "Email",
             $Email,
@@ -28,7 +28,9 @@ if($errors == null){
         ),
         $conn
     );
+
     $isAuthenticated = mysqli_fetch_assoc($user);
+
     if(isset($isAuthenticated)){
         $result = array("result" => $isAuthenticated);
         echo json_encode($result);
@@ -43,5 +45,7 @@ else{
     $result = array("result" => $errors);
     echo json_encode($result);
 }
+
+
 
 ?>
