@@ -5,6 +5,7 @@ include_once('../../config.php');
 $conn = connect();
 
 $errors = array();
+$workersList = array();
 
 $adminId = $_REQUEST['adminId'];
 
@@ -21,7 +22,9 @@ if($errors == null){
         ),
         $conn
     );
-    $workersList = mysqli_fetch_assoc($workers);
+    foreach ($workers as $row) {
+        array_push($workersList, $row);
+    }
     if(isset($workersList)){
         $result = array("result" => $workersList);
         echo json_encode($result);
