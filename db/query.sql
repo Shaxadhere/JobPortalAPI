@@ -68,3 +68,5 @@ EmployerCity varchar(50),
 WorkerExpID int,
 constraint WorkerExpID foreign key(WorkerExpID) references tbl_worker(PK_ID)
 );
+
+ALTER table tbl_worker add column Available bit default 1
