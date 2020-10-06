@@ -21,8 +21,9 @@ if($errors == null){
         ),
         $conn
     );
-    if(isset($workers)){
-        $result = array("result" => $workers);
+    $workersList = mysqli_fetch_assoc($workers);
+    if(isset($workersList)){
+        $result = array("result" => $workersList);
         echo json_encode($result);
     }
     else{
