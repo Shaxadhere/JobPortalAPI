@@ -129,7 +129,12 @@ function editData(string $table, array $data, string $PrimaryKey, $id, $conn){
         $mm--;
     }
     $query = "UPDATE `$table` SET $ini WHERE $PrimaryKey = $id";
-    mysqli_query($conn, $query);
+    $res = mysqli_query($conn, $query);
+    if (!$res) {
+        printf("Error: %s\n", mysqli_error($conn));
+        exit();
+    }
+    return true;
 }
 
 
@@ -194,8 +199,13 @@ function verifyValues(string $table, array $data, $conn){
         $mm--;
     }
  
-     $query = "SELECT * FROM `$table` WHERE $ini";
-     return mysqli_query($conn, $query);
+    $query = "SELECT * FROM `$table` WHERE $ini";
+    $res = mysqli_query($conn, $query);
+    if (!$res) {
+        printf("Error: %s\n", mysqli_error($conn));
+        exit();
+    }
+    return $res;
  }
 
 //this method fetches last row of a specific table by writing mysql query//
