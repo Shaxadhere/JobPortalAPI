@@ -94,6 +94,12 @@ if($errors == null){
         ),
         $conn
     );
+    $result = array("result" => "true");
+    echo json_encode($result);
+}
+else{
+    $result = array("result" => $errors);
+    echo json_encode($result);
 }
 
 ?>

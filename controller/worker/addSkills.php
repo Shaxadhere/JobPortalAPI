@@ -33,6 +33,10 @@ if($errors == null){
         );
     }
 }
+else{
+    $result = array("result" => $errors);
+    echo json_encode($result);
+}
 
 
 ?>
