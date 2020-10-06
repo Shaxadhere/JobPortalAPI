@@ -24,39 +24,39 @@ if(empty($name)){
 }
 
 if(empty($fathername)){
-    array_push($errors, "Full name is required");
+    array_push($errors, "Father name is required");
 }
 
 if(empty($cnic)){
-    array_push($errors, "Full name is required");
+    array_push($errors, "CNIC is required");
 }
 
 if(empty($fathercnic)){
-    array_push($errors, "Full name is required");
+    array_push($errors, "Father's cnic is required");
 }
 
 if(empty($dateofbirth)){
-    array_push($errors, "Full name is required");
+    array_push($errors, "Date of birth is required");
 }
 
 if(empty($gender)){
-    array_push($errors, "Full name is required");
+    array_push($errors, "Gender is required");
 }
 
 if(empty($address)){
-    array_push($errors, "Full name is required");
+    array_push($errors, "Address is required");
 }
 
 if(empty($mobile)){
-    array_push($errors, "Full name is required");
+    array_push($errors, "Mobile is required");
 }
 
 if(empty($whatsapp)){
-    array_push($errors, "Full name is required");
+    array_push($errors, "Whatsapp is required");
 }
 
 if(empty($emergency_contact)){
-    array_push($errors, "Full name is required");
+    array_push($errors, "Emergency number is required");
 }
 
 if($errors == null){
