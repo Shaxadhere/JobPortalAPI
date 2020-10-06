@@ -7,7 +7,7 @@ $conn = connect();
 $errors = array();
 $workersList = array();
 
-$adminId = $_REQUEST['adminId'];
+$adminId = $_REQUEST['adminID'];
 
 if(empty($adminId)){
     array_push($errors, "Your session is expired, please login again");
