@@ -40,10 +40,3 @@ else{
 
 
 ?>
-
-<!-- PK_ID int PRIMARY key AUTO_INCREMENT,
-WorkerHiringID int,
-constraint WorkerHiringID foreign key(WorkerHiringID) references tbl_worker(PK_ID),
-EmployerHiringID int,
-constraint EmployerHiringID foreign key(EmployerHiringID) references tbl_employer(PK_ID),
-HiringData date -->
