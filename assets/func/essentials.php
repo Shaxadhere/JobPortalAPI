@@ -358,4 +358,30 @@ function getBrowser() {
 //     xhr.send();';
 // }
 
+function sendMail(string $smtpHost, string $smtpPort, string $smtpEmail, string $smtpPassword, string $smtpProtocol, string $smtpFrom, string $recipient, bool $isHTML, string $subject, string $message){
+    require '../assets/class.phpmailer.php';
+	$mail = new PHPMailer;
+	$mail->IsSMTP();
+	$mail->Host = $smtpHost;
+	$mail->Port = $smtpPort;
+	$mail->SMTPAuth = true;
+	$mail->Username = $smtpEmail ;
+	$mail->Password = $smtpPassword;
+	$mail->SMTPSecure = $smtpProtocol;
+	$mail->From = $smtpEmail;
+	$mail->FromName = $smtpFrom;
+	$mail->AddAddress($recipient);
+	$mail->WordWrap = 50;
+	$mail->IsHTML($isHTML);
+	$mail->Subject = $subject;
+	$mail->Body = $message;
+	if($mail->Send())
+	{
+		return true;
+    }
+    else{
+        return false;
+    }
+}
+
 ?>
