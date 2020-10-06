@@ -57,3 +57,14 @@ constraint SkillID foreign key(SkillID) references tbl_skills(PK_ID),
 WorkerID int,
 constraint WorkerID foreign key(WorkerID) references tbl_worker(PK_ID)
 );
+
+create table if not EXISTS tbl_worker_exp
+(
+PK_ID int PRIMARY key AUTO_INCREMENT,
+EmployerName varchar(50),
+EmployerAddress varchar(100),
+EmployerArea varchar(50),
+EmployerCity varchar(50),
+WorkerExpID int,
+constraint WorkerExpID foreign key(WorkerExpID) references tbl_worker(PK_ID)
+);
