@@ -2,7 +2,7 @@
 
 include_once('config.php');
 
-print("welcome to job portal API");
+redirectWindow("welcome/index.html");
 
 
 ?>
