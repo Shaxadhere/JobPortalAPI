@@ -9,6 +9,7 @@ $errors = array();
 $workerID = $_REQUEST['workerID'];
 
 $name = $_REQUEST['name'];
+$email = $_REQUEST['email'];
 $fathername = $_REQUEST['fathername'];
 $cnic = $_REQUEST['cnic'];
 $fathercnic = $_REQUEST['fathercnic'];
@@ -20,18 +21,12 @@ $whatsapp = $_REQUEST['whatsapp'];
 $reference = $_REQUEST['reference'];
 $emergency_contact = $_REQUEST['emergency_contact'];
 
-$filterWorker = fetchDataById(
-    "tbl_worker",
-    "PK_ID",
-    $workerID,
-    $conn
-);
-$worker = mysqli_fetch_assoc($filterWorker);
-
-echo $worker['Email'];
-
 if(empty($name)){
     array_push($errors, "Full name is required");
+}
+
+if(empty($email)){
+    array_push($errors, "Email is required");
 }
 
 if(empty($fathername)){
@@ -83,7 +78,28 @@ if($errors == null){
     editData(
         "tbl_worker",
         array(
-            ""
+            "FullName",
+            $name,
+            "Email",
+            $email,
+            "FatherName",
+            $fathername,
+            "Cnic",
+            $cnic,
+            "FatherCnic",
+            $fathercnic,
+            "Gender",
+            $gender,
+            "Address",
+            $address,
+            "Mobile",
+            $mobile,
+            "Whatsapp",
+            $whatsapp,
+            "EmergencyContact",
+            $emergency_contact,
+            "Reference",
+            $reference
         ),
         "PK_ID",
         $workerID,
