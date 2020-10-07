@@ -7,8 +7,8 @@ include_once('functions/main.php');
 //default database connection method
 function connect(){
     define("server", "localhost");
-    define("usr","root");
-    define("pas","");
+    define("usr","oreo");
+    define("pas","786786pkpk");
     define("data","db_workfinder");
     $connection = mysqli_connect(server, usr, pas, data) or die("failed to connect to database");
     return ($connection);
