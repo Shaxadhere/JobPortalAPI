@@ -6,6 +6,8 @@ $conn = connect();
 
 $errors = array();
 
+$workerID = $_REQUEST['workerID'];
+
 $name = $_REQUEST['name'];
 $fathername = $_REQUEST['fathername'];
 $cnic = $_REQUEST['cnic'];
@@ -18,6 +20,15 @@ $whatsapp = $_REQUEST['whatsapp'];
 $reference = $_REQUEST['reference'];
 $emergency_contact = $_REQUEST['emergency_contact'];
 
+$filterWorker = fetchDataById(
+    "tbl_worker",
+    "PK_ID",
+    $workerID,
+    $conn
+);
+$worker = mysqli_fetch_assoc($filterWorker);
+
+echo $worker['Email'];
 
 if(empty($name)){
     array_push($errors, "Full name is required");
@@ -63,49 +74,21 @@ if(empty($emergency_contact)){
     array_push($errors, "Emergency number is required");
 }
 
+
+if(empty($workerID)){
+    array_push($errors, "Your session expired, please login again");
+}
+
 if($errors == null){
-    insertData(
+    editData(
         "tbl_worker",
         array(
-            "name",
-            "fathername",
-            "cnic",
-            "cnic_front",
-            "cinc_back",
-            "fathercnic",
-            "dateofbirth",
-            "gender",
-            "address",
-            "picture",
-            "mobile",
-            "whatsapp",
-            "Reference",
-            "emergency_contact"
+            ""
         ),
-        array(
-            $name,
-            $fathername,
-            $cnic,
-            $cnic_front,
-            $cinc_back,
-            $fathercnic,
-            $dateofbirth,
-            $gender,
-            $address,
-            $picture,
-            $mobile,
-            $whatsapp,
-            $reference,
-            $emergency_contact
-        ),
+        "PK_ID",
+        $workerID,
         $conn
     );
-    $result = array("result" => "true");
-    echo json_encode($result);
-}
-else{
-    $result = array("result" => $errors);
-    echo json_encode($result);
 }
 
 ?>
