@@ -14,7 +14,7 @@
 <?php
 $img = $_FILES['cnic'];
 
-$target_dir = "../../uploads/worker/";
+$directory = "../../uploads/worker/";
 
 uploadFile($img, $directory);
 
