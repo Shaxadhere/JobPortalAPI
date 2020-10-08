@@ -4,7 +4,7 @@
 
 <form action="" method="post" enctype="multipart/form-data">
   Select image to upload:
-  <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="file" name="cnic" id="cnic">
   <input type="submit" value="Upload Image" name="submit">
 </form>
 
@@ -12,14 +12,16 @@
 </html>
 
 <?php
+$img = $_FILES['cnic'];
+
 $target_dir = "../../uploads/worker/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$target_file = $target_dir . basename($img["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
-  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+  $check = getimagesize($img["tmp_name"]);
   if($check !== false) {
     echo "File is an image - " . $check["mime"] . ".";
     $uploadOk = 1;
@@ -36,7 +38,7 @@ if (file_exists($target_file)) {
 }
 
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
+if ($img["size"] > 500000) {
   echo "Sorry, your file is too large.";
   $uploadOk = 0;
 }
@@ -48,7 +50,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
   $uploadOk = 0;
 }
 
-$temp = explode(".", $_FILES["fileToUpload"]["name"]);
+$temp = explode(".", $img["name"]);
 $newfilename = round(microtime(true)) . '.' . end($temp);
 
 // Check if $uploadOk is set to 0 by an error
@@ -56,16 +58,12 @@ if ($uploadOk == 0) {
   echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
-  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "../../uploads/worker/" . $newfilename)) {
-    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+  if (move_uploaded_file($img["tmp_name"], "../../uploads/worker/" . $newfilename)) {
+    echo "The file ". htmlspecialchars( basename( $img["name"])). " has been uploaded.";
   } else {
     echo "Sorry, there was an error uploading your file.";
   }
 }
 
 
-
-$temp = explode(".", $_FILES["file"]["name"]);
-$newfilename = round(microtime(true)) . '.' . end($temp);
-move_uploaded_file($_FILES["file"]["tmp_name"], "../img/imageDirectory/" . $newfilename);
 ?>
