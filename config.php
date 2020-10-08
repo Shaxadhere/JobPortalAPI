@@ -3,8 +3,7 @@
 include_once('assets/rapid.php');
 include_once('functions/main.php');
 
-
-//default database connection method
+// default database connection method
 function connect(){
     define("server", "localhost");
     define("usr","oreo");
