@@ -58,7 +58,7 @@ if ($uploadOk == 0) {
   echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
-  if (move_uploaded_file($img["tmp_name"], "../../uploads/worker/" . $newfilename)) {
+  if (move_uploaded_file($img["tmp_name"], $target_dir . $newfilename)) {
     echo "The file ". htmlspecialchars( basename( $img["name"])). " has been uploaded.";
   } else {
     echo "Sorry, there was an error uploading your file.";
