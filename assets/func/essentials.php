@@ -348,16 +348,13 @@ function getBrowser() {
     return $browser;
 }
 
-// function countVisits(){
-//     echo 'var xhr = new XMLHttpRequest();
-//     xhr.open("GET", "https://api.countapi.xyz/hit/shexad.netlify.app/visits");
-//     xhr.responseType = "json";
-//     xhr.onload = function() {
-//       alert(this.response.value); 
-//     }
-//     xhr.send();';
-// }
-
+/**
+ * estimates a gender from a first name
+ *
+ * @param String   $smtpHost  expects smtp Host in string
+ * 
+ * @return String gender name (male, female)
+ */ 
 function sendMail(string $smtpHost, string $smtpPort, string $smtpEmail, string $smtpPassword, string $smtpProtocol, string $smtpFrom, string $recipient, bool $isHTML, string $subject, string $message){
     require '../assets/class.phpmailer.php';
 	$mail = new PHPMailer;
@@ -385,13 +382,13 @@ function sendMail(string $smtpHost, string $smtpPort, string $smtpEmail, string 
 }
 
 
-function uploadFile($file, $directory, $size){
+function uploadFile($file, $directory, $maxSize){
 
     $target_file = $directory . basename($file["name"]);
 
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-    $sizeInBytes = $size * 1000;
+    $sizeInBytes = $maxSize * 1000;
 
     $check = getimagesize($file["tmp_name"]);
     if($check !== false) {
@@ -416,10 +413,8 @@ function uploadFile($file, $directory, $size){
     $temp = explode(".", $file["name"]);
     $newfilename = round(microtime(true)) . random_strings(50) . '.' . end($temp);
 
-    // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
         echo "Sorry, your file was not uploaded.";
-    // if everything is ok, try to upload file
     }
     else {
         if (move_uploaded_file($file["tmp_name"], $directory . $newfilename)) {
