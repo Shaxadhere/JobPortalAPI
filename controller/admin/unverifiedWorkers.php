@@ -26,17 +26,26 @@ if($errors == null){
         array_push($workersList, $row);
     }
     if(isset($workersList)){
-        $result = array("result" => $workersList);
+        $result = array(
+            "success" => "true",
+            "result" => $workersList
+        );
         echo json_encode($result);
     }
     else{
         array_push($errors, "There's no unverified worker");
-        $result = array("result" => $errors);
+        $result = array(
+            "success" => "false",
+            "error" => $errors
+        );
         echo json_encode($result);
     }
 }
 else{
-    $result = array("result" => $errors);
+    $result = array(
+        "success" => "false",
+        "error" => $errors
+    );
     echo json_encode($result);
 }
 

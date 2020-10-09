@@ -24,6 +24,25 @@ $img = $_FILES['cnic'];
 
 $directory = "../../uploads/worker/";
 
-uploadFile($img, $directory, 1000);
+if($img == null){
+  array_push($errors, "Please select a cnic photo");
+}
+
+if($errors == null){
+  uploadFile($img, $directory, 1000);
+  $result = array(
+    "success" => "true",
+  );
+  echo json_encode($result);
+}
+else{
+  $result = array(
+    "success" => "false",
+    "error" => $errors
+  );
+  echo json_encode($result);
+}
+
+
 
 ?>

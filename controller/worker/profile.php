@@ -20,11 +20,17 @@ if($errors == null){
         $conn
     );
     $worker = mysqli_fetch_assoc($filterWorker);
-    $result = array("result" => $worker);
+    $result = array(
+        "success" => "true",
+        "result" => $worker
+    );
     echo json_encode($result);
 }
 else{
-    $result = array("result" => $errors);
+    $result = array(
+        "success" => "false",
+        "error" => $errors
+    );
     echo json_encode($result);
 }
 

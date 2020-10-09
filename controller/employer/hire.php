@@ -29,11 +29,16 @@ if($errors == null){
         ),
         $conn
     );
-    $result = array("result" => "true");
+    $result = array(
+        "success" => "true"
+    );
     echo json_encode($result);
 }
 else{
-    $result = array("result" => $errors);
+    $result = array(
+        "success" => "false",
+        "error" => $errors
+    );
     echo json_encode($result);
 }
 

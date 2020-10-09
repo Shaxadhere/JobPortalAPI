@@ -35,12 +35,18 @@ if($errors == null){
     }
     else{
         array_push($errors, "Invalid Credentials");
-        $result = array("result" => $errors);
+        $result = array(
+            "success" => "true",
+            "error" => $errors
+        );
         echo json_encode($result);
     }
 }
 else{
-    $result = array("result" => $errors);
+    $result = array(
+        "success" => "false",
+        "error" => $errors
+    );
     echo json_encode($result);
 }
 

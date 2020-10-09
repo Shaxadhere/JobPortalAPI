@@ -105,6 +105,15 @@ if($errors == null){
         $workerID,
         $conn
     );
+    $result = array(
+        "success" => "true",
+    );
+}
+else{
+    $result = array(
+        "success" => "false",
+        "error" => $errors
+    );
 }
 
 ?>
