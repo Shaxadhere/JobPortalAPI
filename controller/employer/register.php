@@ -53,16 +53,39 @@ if($errors == null){
         ),
         $conn
     );
-    $result = array(
-        "success" => "true"
+
+    $user = verifyValues(
+        "tbl_employer",
+        array(
+            "Email",
+            $Email
+        ),
+        $conn
     );
-    echo json_encode($result);
+
+    $isAuthenticated = mysqli_fetch_assoc($user);
+    if(isset($isAuthenticated)){
+        $result = array(
+            "success" => "true",
+            "result" => $isAuthenticated
+        );
+        echo json_encode($result);
+    }
+    else{
+        array_push($errors, "Something went wrong");
+        $result = array(
+            "success" => "false",
+            "result" => $errors
+        );
+        echo json_encode($result);
+    }
+    
 
 }
 else{
     $result = array(
         "success" => "false",
-        "error" => $errors
+        "result" => $errors
     );
     echo json_encode($result);
 }

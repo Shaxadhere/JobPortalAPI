@@ -52,6 +52,45 @@ function insertData(string $table,array $fields,array $values,$conn){
     mysqli_query($conn, $query);
 }
 
+// //this method inserts values in a table and returns the inserted row by writing mysql query//
+// /**
+//  * inserts values in a table and returns the inserted row by writing mysql query
+//  *
+//  * @param String   $table  expects table name
+//  * @param Array   $fields  expects field names in array
+//  * @param Array   $values  expects values in array
+//  * @param String $PrimaryKey expects primary key column name
+//  * @param mysqli_connect   $conn  expects database connection
+//  * 
+//  */ 
+// function insertAndFetchData(string $table,array $fields,array $values,string $PrimaryKey, $conn){
+//     //breaking fields array//
+//     $quote = '';
+//     $c = 0;
+//     foreach ($fields as $item) {
+//         $quote.="`$item`";
+//         $c++;
+//         if($c < count($fields))
+//         {
+//             $quote.=',';
+//         }
+//     }
+//     //breaking values array//
+//     $valQuote = '';
+//     $valc = 0;
+//     foreach ($values as $item) {
+//         $valQuote.="'$item'";
+//         $valc++;
+//         if($valc < count($fields))
+//         {
+//             $valQuote.=',';
+//         }
+//     }
+//     //bulding query for the fields and values//
+//     $query = "insert into `$table` (".$quote.") values (".$valQuote."); select *from $table where $PrimaryKey=(SELECT LAST_INSERT_ID())";
+//     mysqli_query($conn, $query);
+// }
+
 /**
  * fetches values from a table by writing mysql query
  *
