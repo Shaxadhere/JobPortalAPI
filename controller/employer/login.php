@@ -30,13 +30,16 @@ if($errors == null){
     );
     $isAuthenticated = mysqli_fetch_assoc($user);
     if(isset($isAuthenticated)){
-        $result = array("result" => $isAuthenticated);
+        $result = array(
+            "success" => "true",
+            "result" => $isAuthenticated
+        );
         echo json_encode($result);
     }
     else{
         array_push($errors, "Invalid Credentials");
         $result = array(
-            "success" => "true",
+            "success" => "false",
             "error" => $errors
         );
         echo json_encode($result);
