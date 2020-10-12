@@ -16,7 +16,7 @@ if(empty($employerID)){
 if($errors == null){
     $filterWorkers = fetchData("tbl_worker", $conn);
     
-    foreach ($filterWorker as $worker) {
+    foreach ($filterWorkers as $worker) {
         array_push($workerList, $worker);
     }
     $result = array(
