@@ -33,9 +33,9 @@ if(empty($Address)){
     array_push($errors,"Address is required");
 }
 
-if(checkExistance("tbl_employer", "Email", $Email, $conn)){
-    array_push($errors, "Email already exists");
-}
+// if(checkExistance("tbl_employer", "Email", $Email, $conn)){
+//     array_push($errors, "Email already exists");
+// }
 if($errors == null){
 
     insertData(
