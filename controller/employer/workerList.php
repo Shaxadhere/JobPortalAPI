@@ -13,6 +13,7 @@ if(empty($employerID)){
     array_push($errors, "Your session expired, please login again");
 }
 
+
 if($errors == null){
     $filterWorkers = fetchData("tbl_worker", $conn);
     
