@@ -80,3 +80,19 @@ EmployerHiringID int,
 constraint EmployerHiringID foreign key(EmployerHiringID) references tbl_employer(PK_ID),
 HiringData date
 );
+
+create table if not EXISTS tbl_empnotif
+(
+PK_ID int PRIMARY KEY AUTO_INCREMENT,
+FK_Worker_Notif int,
+CONSTRAINT FK_Worker_Notif FOREIGN KEY(FK_Worker_Notif) REFERENCES tbl_worker(PK_ID),
+NotificationDetails varchar(50)
+);
+
+create table if not EXISTS tbl_workernotif
+(
+PK_ID int PRIMARY KEY AUTO_INCREMENT,
+FK_Emp_Notif int,
+CONSTRAINT FK_Emp_Notif FOREIGN KEY(FK_Emp_Notif) REFERENCES tbl_employer(PK_ID),
+NotificationDetails varchar(50)
+)
